@@ -13,9 +13,9 @@ const HomePage = () => {
   const [waitingForResponse, setWaitingForResponse] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState([]);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const fileInputRef = useRef(null);
   const [click, setClicked] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState(null);
  //basically when i do the query request it needs to know whether im sending a file or a text message which is what this will be doing 
   const handleFileClick = () => {
     // Trigger the hidden file input click
