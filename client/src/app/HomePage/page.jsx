@@ -3,9 +3,9 @@
 import React, { useRef, useState } from 'react';
 
 import '../../App.css'
-import LogIn from '@/components/LogIn';
-import Message from '@/components/Message';
 
+import Message from '../../components/Message';
+import LogIn from '../../components/LogIn';
 import { PaperClipIcon } from '@heroicons/react/16/solid';
 
 const HomePage = () => {
