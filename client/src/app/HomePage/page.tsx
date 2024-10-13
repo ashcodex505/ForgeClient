@@ -1,6 +1,5 @@
 "use client"
-import { auth, googleProvider } from '@/firebaseConfig';
-import { signInWithPopup } from 'firebase/auth';
+
 import React, { useRef, useState } from 'react';
 
 import '../../App.css'
@@ -9,7 +8,7 @@ import Message from '@/components/Message';
 
 import { PaperClipIcon } from '@heroicons/react/16/solid';
 
-const HomePage = ({serverData}: {serverData: string}) => {
+const HomePage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [waitingForResponse, setWaitingForResponse] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -17,7 +16,7 @@ const HomePage = ({serverData}: {serverData: string}) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [click, setClicked] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [isFile, setFile] = useState(false) //basically when i do the query request it needs to know whether im sending a file or a text message which is what this will be doing 
+ //basically when i do the query request it needs to know whether im sending a file or a text message which is what this will be doing 
   const handleFileClick = () => {
     // Trigger the hidden file input click
     fileInputRef.current?.click();
@@ -29,7 +28,7 @@ const HomePage = ({serverData}: {serverData: string}) => {
     if (file) {
       console.log('Selected file:', file);
       setSelectedFile(file);
-      setFile(true)
+    
       
 
 
