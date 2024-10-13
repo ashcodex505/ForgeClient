@@ -8,7 +8,7 @@ const SCOPES = 'https://www.googleapis.com/auth/drive https://www.googleapis.com
 
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
 
-const LogIn: React.FC<{ handleLogin: () => void; isAuthenticated: boolean }> = ({ handleLogin, isAuthenticated }) => {
+const LogIn = ({ handleLogin, isAuthenticated }) => {
     const [loading, setLoading] = useState(false);
     const [doesNotHavePermission, setDoesNotHavePermission] = useState(false);
 
@@ -50,7 +50,7 @@ const LogIn: React.FC<{ handleLogin: () => void; isAuthenticated: boolean }> = (
         }
     };
 
-    const listPermissions = async (fileId: string) => {
+    const listPermissions = async (fileId) => {
         try {
             const response = await gapi.client.drive.permissions.list({
                 fileId: fileId,
@@ -59,7 +59,7 @@ const LogIn: React.FC<{ handleLogin: () => void; isAuthenticated: boolean }> = (
             const permissions = response.result.permissions;
 
 
-            const emails = permissions.map((permission: { emailAddress: any; }) => permission.emailAddress);
+            const emails = permissions.map((permission) => permission.emailAddress);
 
 
             return emails

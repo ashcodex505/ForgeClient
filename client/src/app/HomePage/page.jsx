@@ -12,7 +12,7 @@ const HomePage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [waitingForResponse, setWaitingForResponse] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const [messages, setMessages] = useState<JSX.Element[]>([]);
+  const [messages, setMessages] = useState([]);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [click, setClicked] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -22,7 +22,7 @@ const HomePage = () => {
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (event) => {
     setClicked(true);
     const file = event.target.files?.[0];
     if (file) {
@@ -43,7 +43,7 @@ const HomePage = () => {
     }
   };
 
-  const sendFileToChatbot = (file: File) => {
+  const sendFileToChatbot = (file) => {
     const formData = new FormData();
     formData.append('file', file);
    
@@ -70,7 +70,7 @@ const HomePage = () => {
     setIsAuthenticated(true);
   };
 
-  const sendMessage = async (text: string) => {
+  const sendMessage = async (text) => {
     
     if (text.length === 0) {
       return;
@@ -97,11 +97,11 @@ const HomePage = () => {
     console.log(data);
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       sendMessage(inputValue);
     }
