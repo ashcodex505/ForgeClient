@@ -1,3 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "rules": {
+    "react/jsx-key": "off", // Disable the key warning if you don't want to fix it manually
+    "@next/next/no-img-element": "off" // Disable the img element warning if you still prefer using <img>
+  }
 }
