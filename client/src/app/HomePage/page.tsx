@@ -112,7 +112,9 @@ const HomePage = () => {
       <div className={`app-container ${isAuthenticated ? '' : 'blurred'}`}>
         <div className='chat-interface'>
           <div className='messages'>
-            {messages}
+            {messages.map((message,index) => (
+              <div key={index}>{message}</div>
+            ))}
           </div>
           <div className={`input-container ${waitingForResponse ? 'disabled' : ''}`}>
             {/*File Button*/}
