@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect } from 'react';
 import { gapi } from 'gapi-script';
 import './LogIn.css';
